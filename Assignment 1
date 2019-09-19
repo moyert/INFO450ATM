@@ -1,0 +1,98 @@
+#include <iostream>
+using namespace std;
+
+void getValue(int &value);
+
+
+int main()
+{
+	int value = 0;
+	int fifty = 0;
+	int remain = 0;
+	int twnty = 0;
+	int ten = 0;
+	int five = 0;
+	int one = 0;
+	char answer = 0;
+
+	// Calculation if statements 
+	do 
+	{
+		getValue(value);
+		fifty = value / 50;
+		remain = value - (50 * fifty);
+		if (remain != 0)
+		{
+			twnty = remain / 20;
+			remain = remain - (20 * twnty);
+			if (remain != 0)
+			{
+				ten = remain / 10;
+				remain = remain - (10 * ten);
+
+				if (remain != 0)
+				{
+					five = remain / 5;
+					remain = remain - (5 * five);
+					if (remain != 0)
+					{
+						one = remain / 1;
+					}
+				}
+			}
+		}
+		//Display the results
+		if (fifty != 0)
+		{
+			cout << fifty << "$50 Bills" << endl;
+		}
+		if (twnty != 0)
+		{
+			cout << twnty << "$20 Bills" << endl;
+		}
+		if (ten != 0)
+		{
+			cout << ten << "$10 Bills" << endl;
+		}
+		if (five != 0)
+		{
+			cout << five << "$5 Bills" << endl;
+		}
+		if (one != 0)
+		{
+			cout << one << "$1 Bills" << endl;
+		}
+
+		cout << "Would you like to try again (Y/N):" << endl;
+		cin >> answer;
+
+	} while (answer == 'Y' || answer == 'y');
+
+	system("pause");
+	return 0;
+}
+
+// Get and return a valid user input
+void getValue(int &value)
+{
+	int val = 0;
+	do
+	{
+		cout << "How much would you like the withdraw?" << endl;
+		cin >> value;
+		if (value <= 1 )
+		{
+			cout << "Input must be more than $1.00" << endl;
+		}else if (value > 300)
+		{
+			cout << "Input must be less than $300" << endl;
+		}
+		else 
+		{
+			break;
+		}
+
+	} while (value <= 1 || value >= 300);
+
+	
+}
